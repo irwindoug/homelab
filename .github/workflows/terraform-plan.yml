@@ -6,7 +6,7 @@ env:
   TF_CLOUD_ORGANIZATION: "dougirwin"
   TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
   TF_WORKSPACE: "proxmox-github-actions"
-  PROXMOX_API_URL: "${{ secrets.PROXMOX_API_URL }}"
+  PROXMOX_API_URL: "https://pve.dougirwin.tech/api2/json"
   PROXMOX_TOKEN_ID: "${{ secrets.PROXMOX_TOKEN_ID }}"
   PROXMOX_TOKEN_SECRET: "${{ secrets.PROXMOX_TOKEN_SECRET }}"
   CONFIG_DIRECTORY: "./"
@@ -34,9 +34,6 @@ jobs:
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           configuration_version: ${{ steps.plan-upload.outputs.configuration_version_id }}
-          PROXMOX_API_URL: ${{ env.PROXMOX_API_URL }}
-          PROXMOX_TOKEN_ID: ${{ env.PROXMOX_TOKEN_ID }}
-          PROXMOX_TOKEN_SECRET: ${{ env.PROXMOX_TOKEN_SECRET }}
           plan_only: true
       - name: Get Plan Output
         uses: hashicorp/tfc-workflows-github/actions/plan-output@v1.0.0
