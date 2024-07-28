@@ -9,25 +9,25 @@ terraform {
   }
 }
 
-variable "proxmox_api_url" {
+variable "PROXMOX_API_URL" {
   description = "The URL of the Proxmox API"
-  type = string
+  type        = string
 }
 
-variable "proxmox_token_id" {
+variable "PROXMOX_TOKEN_ID" {
   description = "The token ID for the Proxmox API"
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
-variable "proxmox_token_secret" {
+variable "PROXMOX_TOKEN_SECRET" {
   description = "The token secret for the Proxmox API"
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
 
 provider "proxmox" {
-  api_url = var.proxmox_api_url
-  token_id = var.proxmox_token_id
-  token_secret = var.proxmox_token_secret
+  pm_api_url          = var.PROXMOX_API_URL
+  pm_api_token_id     = var.PROXMOX_TOKEN_ID
+  pm_api_token_secret = var.PROXMOX_TOKEN_SECRET
 }
