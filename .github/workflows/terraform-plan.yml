@@ -6,9 +6,6 @@ env:
   TF_CLOUD_ORGANIZATION: "dougirwin"
   TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
   TF_WORKSPACE: "proxmox-github-actions"
-  PROXMOX_API_URL: "${{ secrets.PROXMOX_API_URL }}"
-  PROXMOX_TOKEN_ID: "${{ secrets.PROXMOX_TOKEN_ID }}"
-  PROXMOX_TOKEN_SECRET: "${{ secrets.PROXMOX_TOKEN_SECRET }}"
   CONFIG_DIRECTORY: "./"
 
 jobs:
@@ -27,9 +24,9 @@ jobs:
         with:
           workspace: ${{ env.TF_WORKSPACE }}
           directory: ${{ env.CONFIG_DIRECTORY }}
-          PROXMOX_API_URL: ${{ env.PROXMOX_API_URL }}
-          PROXMOX_TOKEN_ID: ${{ env.PROXMOX_TOKEN_ID }}
-          PROXMOX_TOKEN_SECRET: ${{ env.PROXMOX_TOKEN_SECRET }}
+          PROXMOX_API_URL: ${{ secrets.TF_VAR_PROXMOX_API_URL }}
+          PROXMOX_TOKEN_ID: ${{ secrets.TF_VAR_PROXMOX_TOKEN_ID }}
+          PROXMOX_TOKEN_SECRET: ${{ secrets.TF_VAR_PROXMOX_TOKEN_SECRET }}
           speculative: true
       - name: Create Plan Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
