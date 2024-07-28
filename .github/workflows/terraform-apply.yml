@@ -9,9 +9,9 @@ env:
     TF_CLOUD_ORGANIZATION: "dougirwin"
     TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
     TF_WORKSPACE: "proxmox-github-actions"
-    PROXMOX_API_URL: "${{ secrets.PROXMOX_API_URL }}"
-    PROXMOX_TOKEN_ID: "${{ secrets.PROXMOX_TOKEN_ID }}"
-    PROXMOX_TOKEN_SECRET: "${{ secrets.PROXMOX_TOKEN_SECRET }}"
+    TF_VAR_PROXMOX_API_URL: ${{ secrets.TF_VAR_PROXMOX_API_URL }}
+    TF_VAR_PROXMOX_TOKEN_ID: ${{ secrets.TF_VAR_PROXMOX_TOKEN_ID }}
+    TF_VAR_PROXMOX_TOKEN_SECRET: ${{ secrets.TF_VAR_PROXMOX_TOKEN_SECRET }}
     CONFIG_DIRECTORY: "./"
 
 jobs:
